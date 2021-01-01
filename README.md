@@ -13,26 +13,23 @@
 * Once logged in change your password: `pi$> passwd`
 
 ## Setup dependencies
-Once you've logged into the pi perform an update and all the install dependencies required to run myTimer
-
-    ```
-    pi$> sudo apt update
-    pi$> sudo apt install php php-mysql python apache2 mariadb-server
-    ```
+* Once you've logged into the pi perform an update and all the install dependencies required to run myTimer
+```
+pi$> sudo apt update
+pi$> sudo apt install php php-mysql python apache2 mariadb-server
+```
     
-Upload files for configuring your database to your pi:    
+* Upload files for configuring your database to your pi:    
+```
+host$> scp ./vivaldi_db_setup.sql pi@192.168.7.48:/home/pi
+host$> scp ./create_db.sh pi@192.168.7.48:/home/pi
+```
 
-    ```
-     host$> scp ./vivaldi_db_setup.sql pi@192.168.7.48:/home/pi
-     host$> scp ./create_db.sh pi@192.168.7.48:/home/pi
-    ```
-
-From your pi run the create_db script to setup the vivaldi database:
-
-    ```
-    pi$> chmod +x ~/create_db.sh
-    pi$> sudo ~/create_db.sh
-    ```
+* From your pi run the create_db script to setup the vivaldi database:
+```
+pi$> chmod +x ~/create_db.sh
+pi$> sudo ~/create_db.sh
+```
     
 ## Setup hostname as vivaldi
 * [How to configure hostname on Raspberry Pi](https://pimylifeup.com/raspberry-pi-hostname/)
