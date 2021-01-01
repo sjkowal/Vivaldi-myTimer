@@ -91,7 +91,7 @@ You may also need to set up the directory to allow access.  After your edits the
 
 ```
 
-In /etc/apache2/sites-available/default-ssl.conf do the same and again in the other file in the same folder 000-default.conf
+In `/etc/apache2/sites-available/default-ssl.conf` do the same and again in the other file in the same folder `000-default.conf`
 
 ## Setup myTimer files 
 From you host machine copy the files for the myTimer python scripts to your pi.  
@@ -99,7 +99,7 @@ From you host machine copy the files for the myTimer python scripts to your pi.
 host$> scp myTimer.tar.gz pi@192.168.7.48:/home/pi
 ```
 
-Then on unpack the contents of the tarball on your pi:
+Then unpack the contents of the tarball on your pi:
 ```
 pi$> cd /home/pi
 pi$> tar -zxvf /home/pi/myTimer.tar.gz
