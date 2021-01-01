@@ -13,13 +13,14 @@
 * Once logged in change your password: `pi$> passwd`
 
 ## Setup dependencies
-* Once you've logged into the pi perform an update and all the install dependencies required to run myTimer
+* Once you've logged in perform an update and all the install dependencies 
 ```
 pi$> sudo apt update
-pi$> sudo apt install php php-mysql python apache2 mariadb-server
+pi$> sudo apt install php php-mysql python python-mysqldb apache2 mariadb-server
 ```
-    
-* Upload files for configuring your database to your pi:    
+
+## Database configuration
+* Upload files for configuring your database:    
 ```
 host$> scp ./vivaldi_db_setup.sql pi@192.168.7.48:/home/pi
 host$> scp ./create_db.sh pi@192.168.7.48:/home/pi
@@ -40,7 +41,7 @@ pi$> sudo ~/create_db.sh
 host$> scp www.tar.gz pi@192.168.7.48:/home/pi
 ```
 
-Then on the your pi untar the contents and insure permissions are correctly set:
+Then on the your pi un-tar the contents and insure permissions are correctly set:
 ```
 pi$> tar -zxvf www.tar.gz
 pi$> chmod -R 0755 /home/pi/www
