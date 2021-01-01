@@ -13,43 +13,44 @@
 * Once logged in change your password: `pi$> passwd`
 
 ## Setup dependencies
-* Once you've logged in perform an update and all the install dependencies 
+Once you've logged in perform an update and all the install dependencies 
 ```
 pi$> sudo apt update
 pi$> sudo apt install php php-mysql python python-mysqldb apache2 mariadb-server
 ```
 
 ## Database configuration
-* Upload files for configuring your database:    
+Upload files for configuring your database:    
 ```
 host$> scp ./vivaldi_db_setup.sql pi@192.168.7.48:/home/pi
 host$> scp ./create_db.sh pi@192.168.7.48:/home/pi
 ```
 
-* From your pi run the create_db script to setup the vivaldi database:
+From your pi run the create_db script to setup the vivaldi database:
 ```
 pi$> chmod +x ~/create_db.sh
 pi$> sudo ~/create_db.sh
 ```
     
 ## Setup hostname as vivaldi
-* [How to configure hostname on Raspberry Pi](https://pimylifeup.com/raspberry-pi-hostname/)
+[How to configure hostname on Raspberry Pi](https://pimylifeup.com/raspberry-pi-hostname/)
 
 
-## Copy web server files to the pi
+## Setup web server files
+From you host machine copy the all the files for the web server to your pi.
 ```
 host$> scp www.tar.gz pi@192.168.7.48:/home/pi
 ```
 
-Then on the your pi un-tar the contents and insure permissions are correctly set:
+Then unpack the contents of the tarball on your pi:
 ```
 pi$> tar -zxvf www.tar.gz
 pi$> chmod -R 0755 /home/pi/www
 ```
 
 ## Setup Apache web server
-* In the Apache config file `/etc/apache2/sites-enabled/000-default.conf` you need to change the DocumentRoot path to `/home/pi/www` 
-* You may also need to set up the directory to allow access.  After your edits the file should look like this:
+In the Apache config file `/etc/apache2/sites-enabled/000-default.conf` you need to change the DocumentRoot path to `/home/pi/www` 
+You may also need to set up the directory to allow access.  After your edits the file should look like this:
 
 ```
 
@@ -90,5 +91,17 @@ pi$> chmod -R 0755 /home/pi/www
 
 ```
 
-* In /etc/apache2/sites-available/default-ssl.conf do the same and again in the other file in the same folder 000-default.conf
+In /etc/apache2/sites-available/default-ssl.conf do the same and again in the other file in the same folder 000-default.conf
+
+## Setup myTimer files 
+From you host machine copy the files for the myTimer python scripts to your pi.  
+```
+host$> scp myTimer.tar.gz pi@192.168.7.48:/home/pi
+```
+
+Then on unpack the contents of the tarball on your pi:
+```
+pi$> cd /home/pi
+pi$> tar -zxvf /home/pi/myTimer.tar.gz
+```
 
